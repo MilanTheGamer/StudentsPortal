@@ -4,13 +4,19 @@
   "description": "a micro service for students to register",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./bin/www.js",
+    "start": "node ./bin/www.js",
+    "dev": "nodemon -r dotenv/config ./bin/www.js dotenv_config_path=./server/config/development.env",
+    "cluster": "nodemon -r dotenv/config ./bin/cluster.js dotenv_config_path=./server/config/development.env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Milan",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.13.7"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.12"
   }
 }
