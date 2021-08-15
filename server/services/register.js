@@ -1,5 +1,6 @@
 const Student = require("../models/studentModel");
 const createId = require("../utils/createId");
+const createPdf = require("../utils/createPdf");
 
 const checkIdExist = (id) => {
     return new Promise(async (resolve,reject)=>{
@@ -34,14 +35,23 @@ const createUniqueId = () => {
     });
 };
 
-const register = (studentData) => {
+const register = (studentData,fileName,file) => {
     return new Promise(async(resolve,reject)=>{
         try{
             let id = await createUniqueId();
             studentData._id = id;
+        
             let newStudent = new Student(studentData);
             newStudent.save();
-            resolve(true);  
+            
+            let pdfStatus = await createPdf(studentData,fileName,file);
+
+            if(pdfStatus){
+                resolve(true);  
+            }else{
+                resolve(false);
+            };
+
         }catch(err){
             console.log(err);
             reject(false)
