@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const register = require("../services/register");
+const sendEmail = require("../utils/sendEmail");
 
 //Setup file multer settings
 const multer = require("multer");
@@ -33,6 +34,7 @@ router.post("/",upload.single("pic"),async(req,res)=>{
 });
 
 router.post("/test",async(req,res)=>{
+    sendEmail()
     res.status(200).send("UPLOADED")
 });
 
