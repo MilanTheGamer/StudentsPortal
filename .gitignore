@@ -1,4 +1,4 @@
 node_modules
 
-server/config/development.env
-server/config/production.env
+./server/config/development.env
+./server/config/production.env
