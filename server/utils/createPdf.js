@@ -2,7 +2,7 @@ const pdf = require("html-pdf");
 const pdfTemplate = require("./pdfTemplate");
 const {hostName} = require("../config/config"); 
 
-const createPdf = (ticketData,fileName,file) => {
+const createPdf = (ticketData,fileName) => {
     return new Promise((resolve,reject)=>{
         try{
             ticketData.image = `${hostName}/static/uploads/pictures/${fileName}`;

@@ -35,7 +35,7 @@ const createUniqueId = () => {
     });
 };
 
-const register = (studentData,fileName,file) => {
+const registerService = (studentData,fileName,file) => {
     return new Promise(async(resolve,reject)=>{
         try{
             let id = await createUniqueId();
@@ -59,4 +59,4 @@ const register = (studentData,fileName,file) => {
     });
 };
 
-module.exports = register;
+module.exports = registerService;
